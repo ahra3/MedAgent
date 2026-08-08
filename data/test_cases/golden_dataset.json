@@ -1,0 +1,99 @@
+[
+  {
+    "case_id": "TC-001",
+    "description": "Elderly diabetic patient with multiple medications and a critical DDI",
+    "tests": ["intake_extraction", "ddi_detection_critical", "guideline_retrieval", "hitl_trigger"],
+    "raw_text": "65-year-old male presenting with fatigue and dizziness. Past medical history significant for Type 2 Diabetes Mellitus diagnosed 10 years ago, Atrial Fibrillation, and Hypertension. Current medications include Metformin 1000mg twice daily, Glipizide 5mg once daily in the morning, and Warfarin 5mg daily (started 3 months ago for AF). Patient reports no known drug allergies. Recent labs show HbA1c 7.8%, Creatinine 1.8 mg/dL (elevated), eGFR 38 mL/min, INR 3.2 (above therapeutic range), Potassium 4.9 mEq/L. Blood pressure today: 155/95 mmHg.",
+    "expected_output": {
+      "medications_extracted": ["Metformin", "Glipizide", "Warfarin"],
+      "conditions": ["Type 2 Diabetes Mellitus", "Atrial Fibrillation", "Hypertension"],
+      "implied_conditions": ["Chronic Kidney Disease"],
+      "symptoms": ["fatigue", "dizziness"],
+      "abnormal_labs": ["HbA1c 7.8%", "Creatinine 1.8 mg/dL", "eGFR 38 mL/min", "INR 3.2"],
+      "expected_ddi": [
+        {
+          "drugs": ["Glipizide", "Warfarin"],
+          "severity": "major",
+          "reason": "Warfarin may enhance hypoglycemic effect of sulfonylureas"
+        }
+      ],
+      "expected_risk_level": "critical",
+      "expected_flags": [
+        "Metformin use with eGFR < 45 requires dose reduction or discontinuation",
+        "INR 3.2 is above therapeutic range — bleeding risk",
+        "Uncontrolled hypertension (155/95) despite no antihypertensive medication listed"
+      ],
+      "expected_guideline_topics": [
+        "Diabetes management in CKD",
+        "Hypertension treatment targets",
+        "Warfarin management in atrial fibrillation"
+      ]
+    }
+  },
+  {
+    "case_id": "TC-002",
+    "description": "Clean case with no drug interactions — tests negative detection",
+    "tests": ["intake_extraction", "ddi_negative_case", "no_false_positives"],
+    "raw_text": "42-year-old female with well-controlled hypertension. Takes Amlodipine 5mg once daily. No other medications. No known allergies. No significant past medical history besides hypertension diagnosed 2 years ago. Recent labs: BP 128/82 mmHg, Basic metabolic panel within normal limits, Creatinine 0.9 mg/dL, Potassium 4.1 mEq/L. Patient is asymptomatic, presents for routine follow-up.",
+    "expected_output": {
+      "medications_extracted": ["Amlodipine"],
+      "conditions": ["Hypertension"],
+      "implied_conditions": [],
+      "symptoms": [],
+      "abnormal_labs": [],
+      "expected_ddi": [],
+      "expected_risk_level": "low",
+      "expected_flags": [],
+      "expected_guideline_topics": ["Hypertension management"]
+    }
+  },
+  {
+    "case_id": "TC-003",
+    "description": "Complex polypharmacy case with multiple moderate DDIs and misspelled drug names",
+    "tests": ["intake_extraction", "drug_name_normalization", "multiple_ddi_detection", "brand_to_generic"],
+    "raw_text": "71-year-old male with COPD, Type 2 Diabetes, depression, and chronic back pain. Medications: Glucophage 500mg BID (for diabetes), Advil 400mg TID for back pain, Zoloft 100mg daily (for depression), Lasix 40mg daily, Lisinopril 20mg daily. Allergic to Penicillin and Sulfa drugs. Smoker, 1 pack per day for 40 years. Labs from last week: FBS 165 mg/dL, HbA1c 8.1%, Cr 1.4 mg/dL, Na 138, K 3.4 mEq/L (low). Patient complains of persistent cough, increased shortness of breath, and occasional leg swelling.",
+    "expected_output": {
+      "medications_extracted": ["Metformin", "Ibuprofen", "Sertraline", "Furosemide", "Lisinopril"],
+      "brand_to_generic_mapping": {
+        "Glucophage": "Metformin",
+        "Advil": "Ibuprofen",
+        "Zoloft": "Sertraline",
+        "Lasix": "Furosemide"
+      },
+      "conditions": ["COPD", "Type 2 Diabetes", "Depression", "Chronic back pain"],
+      "implied_conditions": ["Possible Heart Failure"],
+      "symptoms": ["persistent cough", "shortness of breath", "leg swelling"],
+      "abnormal_labs": ["FBS 165 mg/dL", "HbA1c 8.1%", "K 3.4 mEq/L"],
+      "allergies": ["Penicillin", "Sulfa drugs"],
+      "expected_ddi": [
+        {
+          "drugs": ["Sertraline", "Ibuprofen"],
+          "severity": "moderate",
+          "reason": "SSRI + NSAID increases GI bleeding risk"
+        },
+        {
+          "drugs": ["Metformin", "Furosemide"],
+          "severity": "moderate",
+          "reason": "Loop diuretics can impair renal function, increasing lactic acidosis risk"
+        },
+        {
+          "drugs": ["Furosemide", "Lisinopril"],
+          "severity": "moderate",
+          "reason": "Additive hypotensive effect, risk of first-dose hypotension"
+        }
+      ],
+      "expected_risk_level": "high",
+      "expected_flags": [
+        "Hypokalemia (K 3.4) with furosemide — needs potassium monitoring",
+        "NSAID use in elderly with possible renal impairment",
+        "COPD patient still smoking — cessation counseling needed",
+        "Symptoms suggest possible heart failure exacerbation"
+      ],
+      "expected_guideline_topics": [
+        "COPD management",
+        "Diabetes management",
+        "NSAID use in elderly patients"
+      ]
+    }
+  }
+]

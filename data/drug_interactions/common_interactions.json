@@ -1,0 +1,254 @@
+[
+  {
+    "drug_a": "warfarin",
+    "drug_b": "aspirin",
+    "severity": "major",
+    "mechanism": "Additive anticoagulant and antiplatelet effects",
+    "clinical_effect": "Significantly increased risk of bleeding",
+    "management": "Avoid combination unless specifically indicated. Monitor for signs of bleeding.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "warfarin",
+    "drug_b": "ibuprofen",
+    "severity": "major",
+    "mechanism": "NSAIDs inhibit platelet function and may cause GI bleeding; combined with anticoagulant effect of warfarin",
+    "clinical_effect": "Increased risk of GI bleeding and hemorrhage",
+    "management": "Avoid NSAIDs if possible. Use acetaminophen for pain. If NSAID required, use lowest dose for shortest duration and add GI protection.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "metformin",
+    "drug_b": "contrast dye",
+    "severity": "major",
+    "mechanism": "Contrast media can cause acute kidney injury, leading to metformin accumulation and lactic acidosis",
+    "clinical_effect": "Risk of lactic acidosis",
+    "management": "Withhold metformin 48 hours before and after contrast administration. Check renal function before restarting.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "lisinopril",
+    "drug_b": "potassium",
+    "severity": "major",
+    "mechanism": "ACE inhibitors reduce aldosterone secretion, decreasing potassium excretion",
+    "clinical_effect": "Hyperkalemia, potentially life-threatening cardiac arrhythmias",
+    "management": "Monitor serum potassium regularly. Avoid potassium supplements unless documented hypokalemia.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "lisinopril",
+    "drug_b": "spironolactone",
+    "severity": "major",
+    "mechanism": "Both drugs independently increase serum potassium",
+    "clinical_effect": "Severe hyperkalemia",
+    "management": "Monitor potassium closely (within 1 week of initiation, then regularly). Start spironolactone at low dose.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "simvastatin",
+    "drug_b": "amlodipine",
+    "severity": "major",
+    "mechanism": "Amlodipine inhibits CYP3A4, increasing simvastatin levels",
+    "clinical_effect": "Increased risk of myopathy and rhabdomyolysis",
+    "management": "Limit simvastatin dose to 20mg/day when co-administered with amlodipine.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "methotrexate",
+    "drug_b": "ibuprofen",
+    "severity": "major",
+    "mechanism": "NSAIDs reduce renal clearance of methotrexate",
+    "clinical_effect": "Methotrexate toxicity (bone marrow suppression, hepatotoxicity, nephrotoxicity)",
+    "management": "Avoid NSAIDs with high-dose methotrexate. With low-dose, use with extreme caution and monitor.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "fluoxetine",
+    "drug_b": "tramadol",
+    "severity": "major",
+    "mechanism": "Both increase serotonin levels via different mechanisms",
+    "clinical_effect": "Serotonin syndrome (agitation, hyperthermia, tachycardia, clonus)",
+    "management": "Avoid combination. If essential, start at lowest doses and monitor for serotonin syndrome symptoms.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "ciprofloxacin",
+    "drug_b": "theophylline",
+    "severity": "major",
+    "mechanism": "Ciprofloxacin inhibits CYP1A2, reducing theophylline metabolism",
+    "clinical_effect": "Theophylline toxicity (seizures, cardiac arrhythmias)",
+    "management": "Reduce theophylline dose by 30-50%. Monitor serum theophylline levels.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "clarithromycin",
+    "drug_b": "simvastatin",
+    "severity": "major",
+    "mechanism": "Clarithromycin is a strong CYP3A4 inhibitor, dramatically increasing statin levels",
+    "clinical_effect": "Rhabdomyolysis",
+    "management": "Contraindicated. Suspend statin during clarithromycin course or use azithromycin instead.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "clopidogrel",
+    "drug_b": "omeprazole",
+    "severity": "major",
+    "mechanism": "Omeprazole inhibits CYP2C19, reducing conversion of clopidogrel to its active metabolite",
+    "clinical_effect": "Reduced antiplatelet effect, increased cardiovascular risk",
+    "management": "Use pantoprazole instead (does not significantly inhibit CYP2C19).",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "digoxin",
+    "drug_b": "amiodarone",
+    "severity": "major",
+    "mechanism": "Amiodarone inhibits P-glycoprotein and renal clearance of digoxin",
+    "clinical_effect": "Digoxin toxicity (nausea, visual disturbances, arrhythmias)",
+    "management": "Reduce digoxin dose by 50% when starting amiodarone. Monitor digoxin levels.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "lithium",
+    "drug_b": "ibuprofen",
+    "severity": "major",
+    "mechanism": "NSAIDs reduce renal lithium clearance",
+    "clinical_effect": "Lithium toxicity (tremor, confusion, renal impairment)",
+    "management": "Avoid NSAIDs if possible. If required, monitor lithium levels and reduce dose.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "warfarin",
+    "drug_b": "fluconazole",
+    "severity": "major",
+    "mechanism": "Fluconazole inhibits CYP2C9, the primary enzyme metabolizing warfarin",
+    "clinical_effect": "Dramatically increased INR, high bleeding risk",
+    "management": "Reduce warfarin dose by 25-50%. Monitor INR within 3-5 days. Consider alternative antifungal.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "glipizide",
+    "drug_b": "warfarin",
+    "severity": "major",
+    "mechanism": "Warfarin may displace sulfonylureas from protein binding and inhibit their metabolism",
+    "clinical_effect": "Enhanced hypoglycemic effect, increased risk of severe hypoglycemia",
+    "management": "Monitor blood glucose more frequently. Adjust glipizide dose as needed.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "metformin",
+    "drug_b": "alcohol",
+    "severity": "moderate",
+    "mechanism": "Alcohol potentiates the effect of metformin on lactate metabolism",
+    "clinical_effect": "Increased risk of lactic acidosis",
+    "management": "Advise patients to limit alcohol consumption while on metformin.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "amlodipine",
+    "drug_b": "lisinopril",
+    "severity": "moderate",
+    "mechanism": "Additive antihypertensive effect",
+    "clinical_effect": "Hypotension, dizziness, syncope",
+    "management": "Commonly used together intentionally. Monitor blood pressure. Start one agent at a time.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "metformin",
+    "drug_b": "glipizide",
+    "severity": "moderate",
+    "mechanism": "Additive hypoglycemic effect via different mechanisms",
+    "clinical_effect": "Increased risk of hypoglycemia",
+    "management": "Common combination. Monitor blood glucose regularly. Educate patient on hypoglycemia signs.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "atorvastatin",
+    "drug_b": "amlodipine",
+    "severity": "moderate",
+    "mechanism": "Amlodipine mildly inhibits CYP3A4, increasing atorvastatin exposure ~18%",
+    "clinical_effect": "Mildly increased risk of myopathy",
+    "management": "Generally safe. Consider limiting atorvastatin to 40mg if combining. Monitor for muscle symptoms.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "aspirin",
+    "drug_b": "clopidogrel",
+    "severity": "moderate",
+    "mechanism": "Additive antiplatelet effects via different pathways",
+    "clinical_effect": "Increased bleeding risk",
+    "management": "Often used together intentionally (dual antiplatelet therapy post-stent). Monitor for bleeding.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "furosemide",
+    "drug_b": "lisinopril",
+    "severity": "moderate",
+    "mechanism": "Additive hypotensive effect; ACE inhibitors can potentiate diuretic-induced dehydration",
+    "clinical_effect": "First-dose hypotension, electrolyte imbalances",
+    "management": "Start ACE inhibitor at low dose. Monitor blood pressure and electrolytes.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "sertraline",
+    "drug_b": "ibuprofen",
+    "severity": "moderate",
+    "mechanism": "SSRIs impair platelet aggregation; NSAIDs cause GI mucosal damage",
+    "clinical_effect": "Increased risk of GI bleeding (3-15x higher than either alone)",
+    "management": "Add gastroprotection (PPI) if combination required. Consider acetaminophen instead.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "metformin",
+    "drug_b": "furosemide",
+    "severity": "moderate",
+    "mechanism": "Loop diuretics can impair renal function and cause dehydration",
+    "clinical_effect": "Increased risk of lactic acidosis due to reduced renal clearance of metformin",
+    "management": "Monitor renal function regularly. Ensure adequate hydration.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "prednisone",
+    "drug_b": "ibuprofen",
+    "severity": "moderate",
+    "mechanism": "Both corticosteroids and NSAIDs increase GI ulceration risk independently",
+    "clinical_effect": "Significantly increased risk of GI bleeding and peptic ulcer",
+    "management": "Add PPI gastroprotection. Use lowest effective doses for shortest duration.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "insulin",
+    "drug_b": "glipizide",
+    "severity": "moderate",
+    "mechanism": "Both lower blood glucose via different mechanisms",
+    "clinical_effect": "Increased risk of severe hypoglycemia",
+    "management": "Close glucose monitoring. Reduce sulfonylurea dose when adding insulin.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "levothyroxine",
+    "drug_b": "calcium",
+    "severity": "minor",
+    "mechanism": "Calcium binds levothyroxine in the GI tract, reducing absorption",
+    "clinical_effect": "Reduced thyroid hormone efficacy, potential hypothyroidism symptoms",
+    "management": "Separate administration by at least 4 hours. Take levothyroxine on empty stomach.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "levothyroxine",
+    "drug_b": "omeprazole",
+    "severity": "minor",
+    "mechanism": "PPIs increase gastric pH, reducing levothyroxine absorption",
+    "clinical_effect": "Decreased levothyroxine efficacy",
+    "management": "Monitor TSH levels. May need to increase levothyroxine dose.",
+    "source": "local_fallback"
+  },
+  {
+    "drug_a": "lisinopril",
+    "drug_b": "aspirin",
+    "severity": "minor",
+    "mechanism": "Aspirin may slightly reduce the antihypertensive effect of ACE inhibitors",
+    "clinical_effect": "Mildly reduced blood pressure lowering",
+    "management": "Generally clinically insignificant at low-dose aspirin (81mg). Monitor blood pressure.",
+    "source": "local_fallback"
+  }
+]
